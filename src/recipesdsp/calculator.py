@@ -82,7 +82,7 @@ def iterate_product(product, qte_s, **kwargs):
     # recipe_name = f"{recipe['type']} - {recipe['name']}"
     recipe_name = resume_recipe(recipe)
     additional_products = [
-        {"type": "product", "product": key, "qte_s": -value / float(recipe["seconds"])}
+        {"type": "product", "product": key, "qte_s": -nb_machine * value / float(recipe["seconds"])}
         for key, value in recipe["outputs"].items()
         if key != product
     ]
